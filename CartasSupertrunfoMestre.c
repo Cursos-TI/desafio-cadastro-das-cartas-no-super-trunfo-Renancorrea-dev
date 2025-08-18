@@ -1,6 +1,6 @@
-#include <time.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <time.h> // Necessário para usar a função time()
+#include <stdlib.h> // Necessário para usar rand() e srand()
+#include <stdio.h> // Necessário para printf() e scanf()
 
 int main(){
     
@@ -10,7 +10,7 @@ int main(){
 
     //GERAR NUMERO ALEATORIO
 
-    srand(time(0));
+    srand(time(0)); // Inicializa o gerador de números aleatórios com base no relógio do sistema
     ataque1 = 1;//rand() % 100 + 1; // Numero entre 1 e 100
     ataque2 = 0;//rand() % 100 + 1; // Numero entre 1 e 100
     defesa1 = 1;//rand() % 100 + 1; // Numero entre 1 e 100
@@ -27,14 +27,14 @@ int main(){
     printf("R. recuo\n");
 
     printf("Escolha a comparação: ");
-    scanf("%c", &primeiroatributo);
+    scanf(" %c", &primeiroatributo); // O espaço antes de %c faz ignorar ENTER e espaços
 
     switch (primeiroatributo)
     {
     case 'A':
     case 'a':
        printf("Voce escolheu a opcao ataque!\n");
-       resultado1 = ataque1 > ataque2 ? 1 : 0;
+       resultado1 = ataque1 > ataque2 ? 1 : 0; // Se ataque1 for maior, resultado = 1 (vitória)
         break;
         case 'D':
         case 'd':
@@ -48,7 +48,7 @@ int main(){
         break;
     default:
     printf("Opcao de jogo invalida!\n");
-        break;
+        return 0; // Encerra o programa se a opção for inválida
     }
 
     printf("Escolha o segundo atributo.\n");
@@ -84,15 +84,15 @@ int main(){
         printf("Opcao de jogo invalida!\n");
             break;
         }
-
+        // RESULTADO FINAL
         if (resultado1 && resultado2)
         {
-            printf("Parabéns, você venceu!\n");
+            printf("Parabéns, você venceu!\n"); // Se venceu as duas comparações
 
-        } else if (resultado1 != resultado2){
+        } else if (resultado1 != resultado2){  // Se venceu uma e perdeu outra
             printf("Empatou!\n");
         } else {
-            printf("Voce perdeu!\n");
+            printf("Voce perdeu!\n");  // Se perdeu as duas
         }
         {
         
